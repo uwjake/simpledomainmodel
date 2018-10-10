@@ -12,16 +12,16 @@ import SimpleDomainModel
 
 class JobTests: XCTestCase {
   
-//  func testCreateSalaryJob() {
-//    let job = Job(title: "Guest Lecturer", type: Job.JobType.Salary(1000))
-//    XCTAssert(job.calculateIncome(50) == 1000)
-//  }
-//
-//  func testCreateHourlyJob() {
-//    let job = Job(title: "Janitor", type: Job.JobType.Hourly(15.0))
-//    XCTAssert(job.calculateIncome(10) == 150)
-//  }
-//  
+  func testCreateSalaryJob() {
+    let job = Job(title: "Guest Lecturer", type: Job.JobType.Salary(1000))
+    XCTAssert(job.calculateIncome(50) == 1000)
+  }
+
+  func testCreateHourlyJob() {
+    let job = Job(title: "Janitor", type: Job.JobType.Hourly(15.0))
+    XCTAssert(job.calculateIncome(10) == 150)
+  }
+  
 //  func testSalariedRaise() {
 //    let job = Job(title: "Guest Lecturer", type: Job.JobType.Salary(1000))
 //    XCTAssert(job.calculateIncome(50) == 1000)

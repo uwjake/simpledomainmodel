@@ -46,51 +46,51 @@ class MoneyTests: XCTestCase {
     XCTAssert(can.currency == "CAN")
     XCTAssert(can.amount == 15)
   }
-//  func testGBPtoUSD() {
-//    let usd = fiveGBP.convert("USD")
-//    XCTAssert(usd.currency == "USD")
-//    XCTAssert(usd.amount == 10)
-//  }
-//  func testEURtoUSD() {
-//    let usd = fifteenEUR.convert("USD")
-//    XCTAssert(usd.currency == "USD")
-//    XCTAssert(usd.amount == 10)
-//  }
-//  func testCANtoUSD() {
-//    let usd = fifteenCAN.convert("USD")
-//    XCTAssert(usd.currency == "USD")
-//    XCTAssert(usd.amount == 12)
-//  }
-//  
-//  func testUSDtoEURtoUSD() {
-//    let eur = tenUSD.convert("EUR")
-//    let usd = eur.convert("USD")
-//    XCTAssert(tenUSD.amount == usd.amount)
-//    XCTAssert(tenUSD.currency == usd.currency)
-//  }
-//  func testUSDtoGBPtoUSD() {
-//    let gbp = tenUSD.convert("GBP")
-//    let usd = gbp.convert("USD")
-//    XCTAssert(tenUSD.amount == usd.amount)
-//    XCTAssert(tenUSD.currency == usd.currency)
-//  }
-//  func testUSDtoCANtoUSD() {
-//    let can = twelveUSD.convert("CAN")
-//    let usd = can.convert("USD")
-//    XCTAssert(twelveUSD.amount == usd.amount)
-//    XCTAssert(twelveUSD.currency == usd.currency)
-//  }
-//  
-//  func testAddUSDtoUSD() {
-//    let total = tenUSD.add(tenUSD)
-//    XCTAssert(total.amount == 20)
-//    XCTAssert(total.currency == "USD")
-//  }
-//  
-//  func testAddUSDtoGBP() {
-//    let total = tenUSD.add(fiveGBP)
-//    XCTAssert(total.amount == 10)
-//    XCTAssert(total.currency == "GBP")
-//  }
+  func testGBPtoUSD() {
+    let usd = fiveGBP.convert("USD")
+    XCTAssert(usd.currency == "USD")
+    XCTAssert(usd.amount == 10)
+  }
+  func testEURtoUSD() {
+    let usd = fifteenEUR.convert("USD")
+    XCTAssert(usd.currency == "USD")
+    XCTAssert(usd.amount == 10)
+  }
+  func testCANtoUSD() {
+    let usd = fifteenCAN.convert("USD")
+    XCTAssert(usd.currency == "USD")
+    XCTAssert(usd.amount == 12)
+  }
+  
+  func testUSDtoEURtoUSD() {
+    let eur = tenUSD.convert("EUR")
+    let usd = eur.convert("USD")
+    XCTAssert(tenUSD.amount == usd.amount)
+    XCTAssert(tenUSD.currency == usd.currency)
+  }
+  func testUSDtoGBPtoUSD() {
+    let gbp = tenUSD.convert("GBP")
+    let usd = gbp.convert("USD")
+    XCTAssert(tenUSD.amount == usd.amount)
+    XCTAssert(tenUSD.currency == usd.currency)
+  }
+  func testUSDtoCANtoUSD() {
+    let can = twelveUSD.convert("CAN")
+    let usd = can.convert("USD")
+    XCTAssert(twelveUSD.amount == usd.amount)
+    XCTAssert(twelveUSD.currency == usd.currency)
+  }
+
+  func testAddUSDtoUSD() {
+    let total = tenUSD.add(tenUSD)
+    XCTAssert(total.amount == 20)
+    XCTAssert(total.currency == "USD")
+  }
+
+  func testAddUSDtoGBP() {
+    let total = tenUSD.add(fiveGBP)
+    XCTAssert(total.amount == 10)
+    XCTAssert(total.currency == "GBP")
+  }
 }
 

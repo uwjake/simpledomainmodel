@@ -29,63 +29,115 @@ public struct Money {
   
   public func convert(_ to: String) -> Money {
     var newAmount = 0
-    switch self.currency {
+    switch currency {
     case "USD":
         switch to {
         case "GBP":
-            newAmount = self.amount/2
+            newAmount = amount/2
         case "EUR":
-            newAmount = self.amount/2*3
+            newAmount = amount/2*3
         case "CAN":
-            newAmount = self.amount/4*5
+            newAmount = amount/4*5
+        case "USD":
+            newAmount = amount
         default:
             print("Error: Unsupported Currency")
         }
     case "EUR":
         switch to {
         case "GBP":
-            newAmount = self.amount/2
-        case "EUR":
-            newAmount = self.amount/2*3
+            newAmount = amount/3
+        case "USD":
+            newAmount = amount/3*2
         case "CAN":
-            newAmount = self.amount/4*5
+            newAmount = amount/6*5
+        case "EUR":
+            newAmount = amount
+        default:
+            print("Error: Unsupported Currency")
+        }
+    case "GBP":
+        switch to {
+        case "EUR":
+            newAmount = amount*3
+        case "USD":
+            newAmount = amount*2
+        case "CAN":
+            newAmount = amount/2*5
+        case "GBP":
+            newAmount = amount
+        default:
+            print("Error: Unsupported Currency")
+        }
+    case "CAN":
+        switch to {
+        case "EUR":
+            newAmount = amount*6/5
+        case "USD":
+            newAmount = amount*4/5
+        case "GBP":
+            newAmount = amount*2/5
         default:
             print("Error: Unsupported Currency")
         }
     default:
-        newAmount = self.amount
+        newAmount = amount
     }
     return Money(amount: newAmount, currency: to)
   }
   
-//  public func add(_ to: Money) -> Money {
-//  }
-//  public func subtract(_ from: Money) -> Money {
-//  }
+  public func add(_ to: Money) -> Money {
+    var newAmount = 0
+    if to.currency == currency {
+        newAmount = to.amount + amount
+    } else{
+    newAmount = to.amount + Money(amount: amount, currency: currency).convert(to.currency).amount
+    }
+    return Money(amount: newAmount, currency: to.currency)
+  }
+  public func subtract(_ from: Money) -> Money {
+    var newAmount = 0
+    if from.currency == currency {
+    newAmount = from.amount - amount
+    } else{
+    newAmount = from.amount - Money(amount: amount, currency: currency).convert(from.currency).amount
+    }
+    return Money(amount: newAmount, currency: from.currency)
+  }
 }
 
 ////////////////////////////////////
 // Job
 //
-//open class Job {
-//  fileprivate var title : String
-//  fileprivate var type : JobType
-//
-//  public enum JobType {
-//    case Hourly(Double)
-//    case Salary(Int)
-//  }
-//
-//  public init(title : String, type : JobType) {
-//  }
-//
-//  open func calculateIncome(_ hours: Int) -> Int {
-//  }
-//
+open class Job {
+  fileprivate var title : String
+  fileprivate var type : JobType
+
+  public enum JobType {
+    case Hourly(Double)
+    case Salary(Int)
+  }
+
+  public init(title : String, type : JobType) {
+    self.title = title
+    self.type = type
+  }
+
+  open func calculateIncome(_ hours: Int) -> Int {
+    var income = 0
+    switch self.type {
+    case .Hourly(let wage):
+        income = Int(wage * Double(hours))
+    case .Salary(let salary):
+        income = salary
+    }
+    return income
+  }
+
 //  open func raise(_ amt : Double) {
 //  }
-//}
-//
+}
+
 //////////////////////////////////////
 //// Person
 ////

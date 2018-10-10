@@ -41,7 +41,17 @@ public struct Money {
         default:
             print("Error: Unsupported Currency")
         }
-//    case "EUR"
+    case "EUR":
+        switch to {
+        case "GBP":
+            newAmount = self.amount/2
+        case "EUR":
+            newAmount = self.amount/2*3
+        case "CAN":
+            newAmount = self.amount/4*5
+        default:
+            print("Error: Unsupported Currency")
+        }
     default:
         newAmount = self.amount
     }
